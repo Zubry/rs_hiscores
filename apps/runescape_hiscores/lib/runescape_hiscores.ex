@@ -1,18 +1,18 @@
 defmodule RunescapeHiscores do
   @moduledoc """
-  Documentation for `RunescapeHiscores`.
+  An application that automatically fetches runescape players from the hiscores and stores them locally.
   """
+  alias RunescapeHiscores.{PlayerList, PlayerStore}
 
-  @doc """
-  Hello world.
+  def track_player(player) do
+    PlayerList.insert(player)
+  end
 
-  ## Examples
+  def untrack_player(player) do
+    PlayerList.remove(player)
+  end
 
-      iex> RunescapeHiscores.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def get_player(player) do
+    PlayerStore.get(player)
   end
 end

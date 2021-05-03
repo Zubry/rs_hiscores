@@ -9,8 +9,8 @@ defmodule RunescapeHiscores.PlayerStore do
     Agent.start_link(fn -> initial_value end, name: __MODULE__)
   end
 
-  def get do
-    Agent.get(__MODULE__, fn value -> value end)
+  def get(player) do
+    Agent.get(__MODULE__, fn value -> Map.get(value, player, []) end)
   end
 
   def insert(player, stats) do
