@@ -13,8 +13,6 @@ defmodule RunescapeHiscores.PlayerFetcher do
   end
 
   defp handle_response({:ok, %HTTPoison.Response{status_code: 200, body: body}}, player) do
-    Logger.info("Successfully loaded #{player}")
-
     {:ok, body
     |> String.split("\n")
     |> Enum.map(fn row -> String.split(row, ",") end)
