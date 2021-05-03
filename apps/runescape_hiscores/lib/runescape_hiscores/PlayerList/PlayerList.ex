@@ -10,7 +10,7 @@ defmodule RunescapeHiscores.PlayerList do
   end
 
   def get do
-    Agent.get(__MODULE__, fn value -> value end)
+    Agent.get(__MODULE__, fn value -> Enum.to_list(value) end)
   end
 
   def insert(player) do

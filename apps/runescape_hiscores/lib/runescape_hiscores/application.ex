@@ -7,6 +7,10 @@ defmodule RunescapeHiscores.Application do
 
   def start(_type, _args) do
     children = [
+      {RunescapeHiscores.PlayerList, []},
+      {RunescapeHiscores.PlayerProducer, []},
+      {RunescapeHiscores.PlayerStore, %{}},
+      {RunescapeHiscores.PlayerConsumer, []}
       # Starts a worker by calling: RunescapeHiscores.Worker.start_link(arg)
       # {RunescapeHiscores.Worker, arg}
     ]
