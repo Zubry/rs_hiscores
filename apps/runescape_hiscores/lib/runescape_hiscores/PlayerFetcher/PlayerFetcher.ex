@@ -1,4 +1,7 @@
 defmodule RunescapeHiscores.PlayerFetcher do
+  @moduledoc """
+  Loads the given player from the hiscores
+  """
   require Logger
 
   # opts is currently ignored, but may be used in the future
